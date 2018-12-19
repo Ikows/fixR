@@ -1,0 +1,34 @@
+body {
+    background-image: url("/assets/images/journalflou.jpg");
+}
+
+.card
+{
+    width: 65%;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+h1
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    color: white;
+    font-size: 400%;
+}
+
+a
+{
+    color: white;
+    display: flex;
+    margin-bottom: 5%;
+    justify-content: center;
+    font-size: 150%;
+}
+
+a:hover
+{
+    color: red;
+}

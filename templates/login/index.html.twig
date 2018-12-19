@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur Fix.R !{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-light d-block text-center">
+        <a class="navbar-brand" href="#"><p class="brand">Fix.R</p></a>
+        <a href="{{ path('login') }}">
+            <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
+        </a>
+    </nav>
+
+    <div class="container text-center information">
+        <h2>Informez-vous !</h2>
+        <br>
+        <h4>Dès maintenant et sans engagement</h4>
+        <br>
+        <button type="button" class="btn btn-secondary mt-5">S'abonner</button>
+    </div>
+
+    <footer>
+        <div class="row">
+            <div class="col-3 d-flex justify-content-center ml-5">
+                <a href="#" class="fas fa-user-times fa-2x mb-3"></a>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <a href="#" class="fas fa-chair fa-2x mb-3"></a>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <a href="#" class="fas fa-landmark fa-2x mb-3"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 d-flex justify-content-center ml-5">
+                <p>Sans engagement : l'information est un droit. De ce fait, vous êtes libres de partir quand vous voulez</p>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <p>Interactif : réagissez à l'information en participant à des débats encadrés par nos journalistes</p>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <p>Indépendant : nos articles sont rédigés dans le respect de la neutralité de l'information</p>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}
