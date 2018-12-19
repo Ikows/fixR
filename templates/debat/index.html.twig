@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div style="height: 20vh; width: 100%;background-image: url('{{ article.image }}');">
+            <h1>{{ article.title }}</h1>
+        </div>
+
+        <p>Ecrit le : {{ article.createdAt|date('d M Y à h:i') }}</p>
+        {{ article.contenu|raw }}
+
+
+        <h1>Table ronde</h1>
+        <div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 70%;">
+                <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
+                <div class="card-body">
+                    <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 70%;">
+                <div class="card-header">Stacy-Sandrine<span class="float-right">le 32 avril a 20:35</span></div>
+                <div class="card-body">
+                    <p class="card-text">Azy tranquille qu'est ce qui a ? T'as cru on était au quartier la ?</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card text-white bg-success mb-3 float-right" style="max-width: 70%;">
+                <div class="card-header">Arnaud-Chang<span class="float-right">le 32 avril a 20:35</span></div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,
+                        beatae consectetur cumque est impedit provident
+                        quas reprehenderit voluptates! Placeat, ratione.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
