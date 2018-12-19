@@ -7,6 +7,15 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    {% for label, messages in app.flashes %}
+        <div class="container">
+            <div class="alert alert-{{ label }}">
+                {% for message in messages %}
+                    <p>{{ message | raw }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
         {% block body %}{% endblock %}
         <script type="text/javascript" src="/assets/js/jquery-3.3.1.slim.min.js"></script>
         <script type="text/javascript" src="/assets/js/popper.min.js"></script>
