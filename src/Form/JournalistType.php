@@ -53,6 +53,7 @@ class JournalistType extends AbstractType
                     'placeholder' => "Dites-en un peu plus sur vous !"
                 ]
             ])
+            ->add('created_at')
         ;
     }
 
