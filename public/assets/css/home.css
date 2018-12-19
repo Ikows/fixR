@@ -1,9 +1,19 @@
+.logo {
+    width: 200px;
+    margin: auto;
+}
+
+.logo img {
+    width: 300px;
+}
+
 body {
     background-image: url("/assets/images/journalflou.jpg");
 }
 
 nav {
     background-color: transparent;
+    height: 200px;
 }
 
 p {

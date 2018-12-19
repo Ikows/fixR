@@ -7,10 +7,12 @@
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-lg navbar-light d-block text-center">
-        <a class="navbar-brand" href="#"><p class="brand">Fix.R</p></a>
-        <a href="{{ path('login') }}">
+    <nav class="navbar navbar-expand-lg navbar-light d-block">
+        <a href="{{ path('homepage') }}">
             <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
+        </a>
+        <a class="navbar-brand d-block logo" href="{{ path('login') }}">
+            <img src="/assets/images/fixR.png" alt="logo_fixR">
         </a>
     </nav>
 
@@ -22,7 +24,7 @@
         <button type="button" class="btn btn-secondary mt-5">S'abonner</button>
     </div>
 
-    <footer>
+    <footer class="container-fluid">
         <div class="row">
             <div class="col-3 d-flex justify-content-center ml-5">
                 <a href="#" class="fas fa-user-times fa-2x mb-3"></a>
