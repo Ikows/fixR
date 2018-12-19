@@ -1,4 +1,21 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
+    {{ form_row (form.title, {'attr': {'placeholder': "Titre de votre article"}}) }}
+    {{ form_row (form.ville, {'attr': {'placeholder': "Ville consernée par votre aticle"}}) }}
+    {{ form_row (form.contenu, {'attr': {'placeholder': "Votre article ici"}}) }}
+    {{ form_row (form.auteur, {'attr': {'placeholder': "Votre Nom"}}) }}
+    {{ form_row (form.theme, {'attr': {'placeholder': "Selectionnez le thême de votre article"}}) }}
+    {{ form_row (form.motCle, {'attr': {'placeholder': "Le mot-clé de votre article"}}) }}
+    {{ form_row (form.support, {'attr': {'placeholder': "Selelctionnez le support de votre article"}}) }}
+    {{ form_row (form.image, {'attr': {'placeholder': "Ajoutez une image de couverture à votre article"}}) }}
+
+
     <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+
+    {{ form_end(form) }}
+
+{% endblock %}

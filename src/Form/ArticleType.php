@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,10 +14,16 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('slug')
-            ->add('created_at')
+           /* ->add('slug')*/
+           /* ->add('created_at')*/
             ->add('ville')
-            ->add('support')
+            ->add('support', ChoiseType::class, array(
+                'Selectionnez le support de votre article'=>array(
+                    'Texte'=>'stock_texte',
+                    'Video'=>'stock_video',
+                    'Audio'=>'stock_audio'
+                )
+            ))
             ->add('contenu')
             ->add('image')
             ->add('auteur')
