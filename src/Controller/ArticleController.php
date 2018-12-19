@@ -47,7 +47,9 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="article_show", methods={"GET"})
+     * @param Article $article
+     * @return Response
+     * @Route("/{slug}", name="article_show", methods={"GET"})
      */
     public function show(Article $article): Response
     {

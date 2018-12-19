@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Article;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -45,6 +46,28 @@ class JournalistFixtures extends Fixture
 
             $manager->persist($user);
             $users[] = $user;
+        }
+
+        for ($i = 1; $i <=30; $i++) {
+            $article = new Article();
+
+            $title = $faker->sentence();
+            $coverImage = $faker->imageURL(1000, 350);
+            $content = '<p>' . join('</p><p>', $faker->paragraphs(5)) . '</p>';
+            $city = $faker->city;
+
+            $user = $users[mt_rand(0, count($users) - 1)];
+
+            $article->setTitle($title)
+                ->setImage($coverImage)
+                ->setContenu($content)
+                ->setAuteur($user)
+                ->setVille($city)
+                ->setSupport('article')
+                ->setCreatedAt($faker->dateTime());
+
+            $manager->persist($article);
+
         }
 
         $manager->flush();
