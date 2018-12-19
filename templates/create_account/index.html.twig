@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/create.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+{% endblock %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-light d-block text-center">
+    <a class="navbar-brand logo" href="#"><p class="brand justify-content-center"><img src="/assets/images/fixR.png" alt="logo_fixR"></p></a>
+    <a href="{{ path('login') }}">
+        <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
+    </a>
+</nav>
+
+    <h3>Restez connecté à l'actualité.</h3>
+
+<div class="container">
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+    {{ form_row(form.password) }}
+    <button type="submit" class="btn btn-secondary"  name="submit">Valider</button>
+    {{ form_end(form) }}
+</div>
+
+
+
+{% endblock %}
