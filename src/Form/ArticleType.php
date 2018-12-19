@@ -3,10 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Article;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class ArticleType extends AbstractType
 {
@@ -17,8 +20,8 @@ class ArticleType extends AbstractType
            /* ->add('slug')*/
            /* ->add('created_at')*/
             ->add('ville')
-            ->add('support', ChoiseType::class, array(
-                'Selectionnez le support de votre article'=>array(
+            ->add('support', ChoiceType::class, array(
+                'choices'=>array(
                     'Texte'=>'stock_texte',
                     'Video'=>'stock_video',
                     'Audio'=>'stock_audio'
@@ -26,9 +29,17 @@ class ArticleType extends AbstractType
             ))
             ->add('contenu')
             ->add('image')
-            ->add('auteur')
-            ->add('theme')
-            ->add('motCle')
+           /* ->add('auteur')*/
+            ->add('theme', ChoiceType::class, array(
+                'choices'=>array(
+                    'Politique'=>'stock_politique',
+                    'Economie'=>'stock_economie',
+                    'Santé'=>'stock_sante',
+                    'Design'=>'stock_design',
+                    'Cuisine'=>'stock_cuisine'
+                )
+           ))
+            ->add('motCle', UrlType::class)
         ;
     }
 

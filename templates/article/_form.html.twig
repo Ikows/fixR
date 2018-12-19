@@ -1,21 +1,43 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block stysheets %} <link rel="stylesheet" href="{{ asset('assets/css/Crud.css') }}"> {% endblock %}
 
 {% block body %}
+<div class="container">
+<div class="card text-white mx-auto">
+    <div class="card-body">
 
-    {{ form_start(form) }}
+        {{ form_start(form) }}
 
-    {{ form_row (form.title, {'attr': {'placeholder': "Titre de votre article"}}) }}
-    {{ form_row (form.ville, {'attr': {'placeholder': "Ville consernée par votre aticle"}}) }}
-    {{ form_row (form.contenu, {'attr': {'placeholder': "Votre article ici"}}) }}
-    {{ form_row (form.auteur, {'attr': {'placeholder': "Votre Nom"}}) }}
-    {{ form_row (form.theme, {'attr': {'placeholder': "Selectionnez le thême de votre article"}}) }}
-    {{ form_row (form.motCle, {'attr': {'placeholder': "Le mot-clé de votre article"}}) }}
-    {{ form_row (form.support, {'attr': {'placeholder': "Selelctionnez le support de votre article"}}) }}
-    {{ form_row (form.image, {'attr': {'placeholder': "Ajoutez une image de couverture à votre article"}}) }}
+            {{ form_row (form.title, {'attr': {'placeholder': "Titre de votre article"}}) }}
+            {{ form_row (form.ville, {'attr': {'placeholder': "Ville consernée par votre aticle"}}) }}
 
+            <div class="row">
+                <div class="col">
+                    {{ form_row (form.theme, {'attr': {'placeholder': "Selectionnez le thême de votre article"}}) }}
 
-    <button class="btn">{{ button_label|default('Save') }}</button>
+                </div>
+                <div class="col">
+                    {{ form_row (form.support, {'attr': {'placeholder': "Selelctionnez le support de votre article"}}) }}
+                </div>
+            </div>
 
-    {{ form_end(form) }}
+            {{ form_row (form.contenu, {'attr': {'placeholder': "Votre article ici"}}) }}
 
+            <div class="row">
+                <div class="col">
+                    {{ form_row (form.image, {'attr': {'placeholder': "Ajoutez l'url de image de couverture à votre article"}}) }}
+
+                </div>
+                <div class="col">
+                    {{ form_row (form.motCle, {'attr': {'placeholder': "Le  ou les mots-clés de votre article"}}) }}
+                </div>
+            </div>
+
+            <button class="btn col-3 m-md-5">{{ button_label|default('Save') }}</button>
+
+        {{ form_end(form) }}
+
+    </div>
+</div>
+</div>
 {% endblock %}
