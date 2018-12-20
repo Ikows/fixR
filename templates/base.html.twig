@@ -4,8 +4,44 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
     </head>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light d-block">
+            {% if app.user %}
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+                        <img src="{{ app.user.photo }}" alt="Avatar de {{ app.user.prenom }} {{ app.user.nom }}" class="avatar avatar-mini">
+                        {{ app.user.prenom }} {{ app.user.nom }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item">Créer un article</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Mon compte</a>
+                        <a href="#" class="dropdown-item">Modifier mon profil</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Déconnexion</a>
+                    </div>
+                </li>
+            <a class="navbar-brand d-block logo" href="{{ path('app_login') }}">
+                    <img src="/assets/images/fixR.png" alt="logo_fixR">
+                </a>
+            {% else %}
+            <a href="{{ path('app_login') }}">
+                <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
+            </a>
+            <a class="navbar-brand d-block logo" href="{{ path('app_login') }}">
+                <img src="/assets/images/fixR.png" alt="logo_fixR">
+            </a>
+            {% endif %}
+        </nav>
+
+    </header>
+
     <body>
     {% for label, messages in app.flashes %}
         <div class="container">
