@@ -51,8 +51,17 @@ class AccountController extends AbstractController
         }
 
 
-        return $this->render('account/journalist.html.twig', [
+        return $this->render('account/creationJournalist.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/profile/journalist", name="profile_journalist")
+     */
+    public function profileJournalist()
+    {
+        return $this->render('account/profileJournalist.html.twig');
     }
 }
