@@ -4,11 +4,6 @@ h3
     margin-top: 20px;
 }
 
-body {
-    background-image: url("/assets/images/journalflou.jpg");
-    background-attachment: fixed;
-}
-
 .container {
     padding: 30px 30px 55px 30px;
     margin-top: 10vh;
