@@ -18,7 +18,8 @@ nav {
 }
 
 .fas {
-    color: #cd1c1d;
+    color: white;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
 .fas:hover {
@@ -54,11 +55,12 @@ div.carousel-caption {
 }
 
 .avatar-mini {
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 28px;
+    max-height: 28px;
 }
 
 body {
     background-image: url("/assets/images/journalflou.jpg");
     background-attachment: fixed;
 }
+
