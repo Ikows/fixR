@@ -4,15 +4,17 @@
 
 {% block body %}
     <div class="container">
-        <div style="height: 20vh; width: 100%;background-image: url('{{ article.image }}');">
-            <h1>{{ article.title }}</h1>
+        <div class="jumbotron py-4">
+            <h1 class="display-3">{{ article.title }}</h1>
+            <img style="height: 40vh; width: 100%;" src="{{ article.image }}">
+            <hr class="my-4">
+                {{ article.contenu|raw }}
+            <p>Ecrit par {{ article.auteur.nom }} {{ article.auteur.prenom }}, le : {{ article.createdAt|date('d M Y à h:i') }}</p>
+            <a class="btn btn-primary btn-lg d-block w-25 mx-auto" href="#" role="button">Participer au débat !</a>
         </div>
 
-        <p>Ecrit le : {{ article.createdAt|date('d M Y à h:i') }}</p>
-        {{ article.contenu|raw }}
 
-
-        <h1>Table ronde</h1>
+        <h1>Place du débat</h1>
         <div>
             <div class="card text-white bg-secondary mb-3" style="max-width: 70%;">
                 <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
