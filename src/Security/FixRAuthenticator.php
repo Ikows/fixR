@@ -85,7 +85,7 @@ class FixRAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->router->generate('account'));
+        return new RedirectResponse($this->router->generate('dashboard'));
     }
 
     protected function getLoginUrl()
