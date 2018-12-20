@@ -41,6 +41,10 @@ class AccountController extends AbstractController
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user -> setPassword($hash);
             $user->setCreatedAt(new \DateTime());
+            $user->setRoles([
+                'ROLE_JOURNALIST',
+                'ROLE_USER'
+            ]);
             $manager->persist($user);
             $manager->flush();
 
