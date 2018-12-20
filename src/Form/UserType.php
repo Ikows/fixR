@@ -6,6 +6,8 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,9 +17,10 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-	        ->add('nom')
+	        ->add('nom', TextType::class)
 	        ->add('prenom', NULL, ['label' => 'Prénom'])
 	        ->add('password', PasswordType::class, ['label' => 'Mot de Passe'])
+	        ->add('password_verify', PasswordType::class, ['label' => 'Confirmez votre mot de passe'])
         ;
     }
 

@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -28,10 +30,16 @@ class User implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
-
+	
+    /**
+	 * @Assert\EqualTo(propertyPath="password",message="Vos mots de passe ne correspondent pas")
+     */
+    private $password_verify;
+    
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min=6)
      */
     private $password;
 
@@ -74,6 +82,22 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Reaction", mappedBy="user")
      */
     private $reactions;
+	
+	/**
+	 * @return mixed
+	 */
+	public function getPasswordVerify()
+	{
+		return $this->password_verify;
+	}
+	
+	/**
+	 * @param mixed $password_verify
+	 */
+	public function setPasswordVerify($password_verify): void
+	{
+		$this->password_verify = $password_verify;
+	}
 
     public function __construct()
     {
