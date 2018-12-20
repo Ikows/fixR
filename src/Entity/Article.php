@@ -71,9 +71,15 @@ class Article
      */
     private $motCle;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reaction", mappedBy="article")
+     */
+    private $reactions;
+
     public function __construct()
     {
         $this->motCle = new ArrayCollection();
+        $this->reactions = new ArrayCollection();
     }
 
     /**
@@ -222,6 +228,37 @@ class Article
     {
         if ($this->motCle->contains($motCle)) {
             $this->motCle->removeElement($motCle);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reaction[]
+     */
+    public function getReactions(): Collection
+    {
+        return $this->reactions;
+    }
+
+    public function addReaction(Reaction $reaction): self
+    {
+        if (!$this->reactions->contains($reaction)) {
+            $this->reactions[] = $reaction;
+            $reaction->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReaction(Reaction $reaction): self
+    {
+        if ($this->reactions->contains($reaction)) {
+            $this->reactions->removeElement($reaction);
+            // set the owning side to null (unless already changed)
+            if ($reaction->getArticle() === $this) {
+                $reaction->setArticle(null);
+            }
         }
 
         return $this;
