@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="/assets/css/showArticle.css">
@@ -14,30 +14,30 @@
         </div>
     </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mb-3">
-            {{ article.contenu | raw }}
-            <a href="#">
-                <button type="button" class="btn btn-secondary">Débat</button>
-            </a>
-        </div>
-        <div class="col">
-            {% set a = article.auteur %}
-            <div class="row">
-                <div class="col-3">
-                    <a href="#"><img class="avatar" src="{{ a.photo }}" alt="avatar de {{ a.nom }}{{ a.prenom }}"></a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <h3>{{ a.prenom }} {{ a.nom }}</h3>
-                    </a>
-                    <span class="badge badge-primary">{{ a.articles|length }} articles</span>
-                </div>
+    <div class="container corpArticle">
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                {{ article.contenu | raw }}
+                <a href="#">
+                    <button type="button" class="btn btn-secondary">Débat</button>
+                </a>
             </div>
-            {{ a.description|raw }}
+            <div class="col">
+                {% set a = article.auteur %}
+                <div class="row">
+                    <div class="col-3">
+                        <a href="#"><img class="avatar" src="{{ a.photo }}" alt="avatar de {{ a.nom }}{{ a.prenom }}"></a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ path("profile_journalist", {'slug': article.auteur.slug}) }}" style="color: white">
+                            <h3>{{ a.prenom }} {{ a.nom }}</h3>
+                        </a>
+                        <span class="badge badge-primary">{{ a.articles|length }} articles</span>
+                    </div>
+                </div>
+                {{ a.description|raw }}
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
