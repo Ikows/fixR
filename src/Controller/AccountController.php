@@ -59,10 +59,12 @@ class AccountController extends AbstractController
 
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/profile/journalist", name="profile_journalist")
+     * @Route("/profile/journalist/{slug}", name="profile_journalist")
      */
-    public function profileJournalist()
+    public function profileJournalist(User $user)
     {
-        return $this->render('account/profileJournalist.html.twig');
+        return $this->render('account/profileJournalist.html.twig',[
+            'user' => $user
+        ]);
     }
 }
