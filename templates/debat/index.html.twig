@@ -34,45 +34,23 @@
 
         <h1>Place du débat</h1>
         <br>
-        <div class="row">
-            <div class="col-9">
-                <div class="card text-white bg-secondary mb-3" style="max-width: 100%;">
-                    <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
-                    <div class="card-body">
-                        <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-9">
-                <div class="card text-white bg-secondary mb-3" style="max-width: 100%;">
-                    <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
-                    <div class="card-body">
-                        <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-end">
-            <div class="col-9">
-                <div class="card text-white bg-success mb-3" style="max-width: 100%;">
-                    <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
-                    <div class="card-body">
-                        <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
         {% for reaction in article.reactions %}
-        {{ reaction.contenu | raw }}
+            <div class="row">
+                <div class="col-9">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 100%;">
+                        <div class="card-header">{{ reaction.user.nom }} <span class="float-right">{{ reaction.createdAt|date('Y-m-d') }}</span></div>
+                        <div class="card-body">
+                            <p class="card-text">{{ reaction.contenu | raw }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
         <br>
         <div>
             {{ form_start(form) }}
             {{ form_rest(form) }}
-            <input type="submit" value="submit" name="submit">
+            <input class="btn btn-primary" type="submit" value="submit" name="submit">
             {{ form_end(form) }}
         </div>
     </div>

@@ -7,6 +7,7 @@ use App\Entity\Reaction;
 use App\Form\ReactionType;
 use Doctrine\Common\Persistence\ObjectManager;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,7 @@ class DebatController extends AbstractController
 {
     /**
      * @Route("/debat/{id}", name="debat")
+     * @IsGranted("ROLE_PRESS")
      */
     public function index(Article $article, Request $request, ObjectManager $manager): Response
     {

@@ -40,6 +40,10 @@ class AccountController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $hash = $encoder->encodePassword($user, $user->getPassword());
             $user -> setPassword($hash);
+            $user->setRoles([
+                'ROLE_USER',
+                'ROLE_PRESS'
+            ]);
             $user->setCreatedAt(new \DateTime());
 
             $manager->persist($user);
