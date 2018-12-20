@@ -7,14 +7,6 @@
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-lg navbar-light d-block">
-        <a href="{{ path('app_login') }}">
-            <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
-        </a>
-        <a class="navbar-brand d-block logo" href="{{ path('app_login') }}">
-            <img src="/assets/images/fixR.png" alt="logo_fixR">
-        </a>
-    </nav>
 
     <div class="container text-center information">
         <h2>Informez-vous !</h2>
@@ -24,29 +16,6 @@
         <button type="button" class="btn btn-secondary mt-5">S'abonner</button>
     </div>
 
-    <footer class="container-fluid">
-        <div class="row">
-            <div class="col-3 d-flex justify-content-center ml-5">
-                <a href="#" class="fas fa-user-times fa-2x mb-3"></a>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <a href="#" class="fas fa-chair fa-2x mb-3"></a>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <a href="#" class="fas fa-landmark fa-2x mb-3"></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3 d-flex justify-content-center ml-5">
-                <p>Sans engagement : l'information est un droit. De ce fait, vous êtes libres de partir quand vous voulez</p>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <p>Interactif : réagissez à l'information en participant à des débats encadrés par nos journalistes</p>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <p>Indépendant : nos articles sont rédigés dans le respect de la neutralité de l'information</p>
-            </div>
-        </div>
-    </footer>
+
 
 {% endblock %}

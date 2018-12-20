@@ -4,8 +4,44 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/base.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
     </head>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light d-block">
+            {% if app.user %}
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+                        <img src="{{ app.user.photo }}" alt="Avatar de {{ app.user.prenom }} {{ app.user.nom }}" class="avatar avatar-mini">
+                        {{ app.user.prenom }} {{ app.user.nom }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item">Créer un article</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Mon compte</a>
+                        <a href="#" class="dropdown-item">Modifier mon profil</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Déconnexion</a>
+                    </div>
+                </li>
+            <a class="navbar-brand d-block logo" href="{{ path('app_login') }}">
+                    <img src="/assets/images/fixR.png" alt="logo_fixR">
+                </a>
+            {% else %}
+            <a href="{{ path('app_login') }}">
+                <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
+            </a>
+            <a class="navbar-brand d-block logo" href="{{ path('app_login') }}">
+                <img src="/assets/images/fixR.png" alt="logo_fixR">
+            </a>
+            {% endif %}
+        </nav>
+
+    </header>
+
     <body>
     {% for label, messages in app.flashes %}
         <div class="container">
@@ -16,7 +52,34 @@
             </div>
         </div>
     {% endfor %}
+
         {% block body %}{% endblock %}
+
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="col-3 d-flex justify-content-center ml-5">
+                <a href="#" class="fas fa-user-times fa-2x mb-3"></a>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <a href="#" class="fas fa-chair fa-2x mb-3"></a>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <a href="#" class="fas fa-landmark fa-2x mb-3"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 d-flex justify-content-center ml-5">
+                <p class="footer">Sans engagement : l'information est un droit. De ce fait, vous êtes libres de partir quand vous voulez</p>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <p class="footer">Interactif : réagissez à l'information en participant à des débats encadrés par nos journalistes</p>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <p class="footer">Indépendant : nos articles sont rédigés dans le respect de la neutralité de l'information</p>
+            </div>
+        </div>
+    </footer>
+
         <script type="text/javascript" src="/assets/js/jquery-3.3.1.slim.min.js"></script>
         <script type="text/javascript" src="/assets/js/popper.min.js"></script>
         <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
