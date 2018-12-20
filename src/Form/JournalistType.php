@@ -29,6 +29,12 @@ class JournalistType extends AbstractType
                     'placeholder' => "Votre mot de passe"
                 ]
             ])
+            ->add('password_verify', PasswordType::class, [
+                'label' => 'Confirmez votre mot de passe',
+                'attr' => [
+                    'placeholder' => "Retapez votre mot de passe"
+                ]
+                ])
             ->add('nom', TextType::class, [
                 'label' => 'Nom',
                 'attr' => [
@@ -52,9 +58,7 @@ class JournalistType extends AbstractType
                 'attr' => [
                     'placeholder' => "Dites-en un peu plus sur vous !"
                 ]
-            ])
-            ->add('created_at')
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
