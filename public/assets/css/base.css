@@ -55,11 +55,12 @@ div.carousel-caption {
 }
 
 .avatar-mini {
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 28px;
+    max-height: 28px;
 }
 
 body {
     background-image: url("/assets/images/journalflou.jpg");
     background-attachment: fixed;
 }
+
