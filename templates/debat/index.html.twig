@@ -8,38 +8,69 @@
             <h1 class="display-3">{{ article.title }}</h1>
             <img style="height: 40vh; width: 100%;" src="{{ article.image }}">
             <hr class="my-4">
-                {{ article.contenu|raw }}
+            {{ article.contenu|raw }}
             <p>Ecrit par {{ article.auteur.nom }} {{ article.auteur.prenom }}, le : {{ article.createdAt|date('d M Y à h:i') }}</p>
-            <a class="btn btn-primary btn-lg d-block w-25 mx-auto" href="#" role="button">Participer au débat !</a>
         </div>
 
+        <div class="jumbotron">
+            <h4>Le débat aura lieu du 22 Déc au 24 Déc</h4>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <p>Utilisateurs inscrits :</p>
+                    <ul>
+                        <li>Jeremy-Farid</li>
+                        <li>Vincent-François</li>
+                        <li>Et Bob</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p>Il reste : <br> <span class="h2">4</span> places</p>
+                </div>
+                <div class="col"><a class="btn btn-primary btn-lg d-block my-auto" href="#" role="button">Participer au débat !</a>
+                </div>
+            </div>
+        </div>
 
         <h1>Place du débat</h1>
-        <div>
-            <div class="card text-white bg-secondary mb-3" style="max-width: 70%;">
-                <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
-                <div class="card-body">
-                    <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
+        <br>
+        <div class="row">
+            <div class="col-9">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 100%;">
+                    <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
+                    <div class="card-body">
+                        <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div>
-            <div class="card text-white bg-secondary mb-3" style="max-width: 70%;">
-                <div class="card-header">Stacy-Sandrine<span class="float-right">le 32 avril a 20:35</span></div>
-                <div class="card-body">
-                    <p class="card-text">Azy tranquille qu'est ce qui a ? T'as cru on était au quartier la ?</p>
+        <div class="row">
+            <div class="col-9">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 100%;">
+                    <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
+                    <div class="card-body">
+                        <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div>
-            <div class="card text-white bg-success mb-3 float-right" style="max-width: 70%;">
-                <div class="card-header">Arnaud-Chang<span class="float-right">le 32 avril a 20:35</span></div>
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,
-                        beatae consectetur cumque est impedit provident
-                        quas reprehenderit voluptates! Placeat, ratione.</p>
+        <div class="row justify-content-end">
+            <div class="col-9">
+                <div class="card text-white bg-success mb-3" style="max-width: 100%;">
+                    <div class="card-header">Jean-Karim <span class="float-right">le 32 avril a 20:35</span></div>
+                    <div class="card-body">
+                        <p class="card-text">Ouech bien ? la famille ? les affaires, toussa toussa ?</p>
+                    </div>
                 </div>
             </div>
+        </div>
+        <br>
+        {% for reaction in article.reactions %}
+        {{ reaction.contenu | raw }}
+        {% endfor %}
+        <br>
+        <div>
+            {{ form(reactionForm) }}
         </div>
     </div>
 {% endblock %}
