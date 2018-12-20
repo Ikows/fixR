@@ -17,11 +17,10 @@
         <nav class="navbar navbar-expand-lg navbar-light d-block">
             {% if retour is defined %}
                 <a href="{{ path('homepage') }}">
-                    <button class="btn btn-secondary my-2 my-sm-0 float" type="submit">Retour</button>
+                    <button class="btn btn-secondary my-2 my-sm-0 float-left" type="submit">Retour</button>
                 </a>
             {% endif %}
             <div class="collapse navbar-collapse" id="navbarColor03">
-
                 <ul class="navbar-nav ml-auto">
                     {% if app.user %}
                         <li class="nav-item dropdown">
