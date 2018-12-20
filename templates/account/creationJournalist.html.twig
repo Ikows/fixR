@@ -2,10 +2,14 @@
 
 {% block title %}Inscription à Fix.R{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/createJournalist.css">
+{% endblock %}
+
 {% block body %}
 
     <div class="container">
-        <h1>Devenez journaliste pour Fix.R !</h1>
+        <h3>Devenez journaliste pour Fix.R !</h3>
 
         {{ form_start(form) }}
         {{ form_widget(form) }}
