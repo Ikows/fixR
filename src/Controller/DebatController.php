@@ -17,7 +17,6 @@ class DebatController extends AbstractController
 {
     /**
      * @Route("/debat/{id}", name="debat")
-     * @IsGranted("ROLE_PRESS")
      */
     public function index(Article $article, Request $request, ObjectManager $manager): Response
     {
