@@ -58,3 +58,8 @@ div.carousel-caption {
     max-width: 24px;
     max-height: 24px;
 }
+
+body {
+    background-image: url("/assets/images/journalflou.jpg");
+    background-attachment: fixed;
+}
