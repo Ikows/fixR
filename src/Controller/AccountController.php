@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\AbonnementType;
 use App\Form\JournalistType;
 use App\Form\ProfileEditionType;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -107,4 +108,5 @@ class AccountController extends AbstractController
             'user' => $this->getUser()
         ]);
     }
+
 }
