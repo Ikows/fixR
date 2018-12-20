@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\JournalistType;
+use App\Form\ProfileEditionType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,6 +66,35 @@ class AccountController extends AbstractController
     {
         return $this->render('account/profileJournalist.html.twig',[
             'user' => $user
+        ]);
+    }
+
+    /**
+     * @param User $user
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/edit/journalist", name="edit_journalist")
+     */
+    public function editProfileJournalist(Request $request, ObjectManager $manager)
+    {
+        $user = $this->getUser();
+
+        $form = $this->createForm(ProfileEditionType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setCreatedAt(new \DateTime());
+
+            $manager->persist($user);
+            $manager->flush();
+
+            $this->addFlash(
+                'success',
+                "Votre profil a bien été mis à jour"
+            );
+        }
+
+        return $this->render('account/editProfileJournalist.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }
