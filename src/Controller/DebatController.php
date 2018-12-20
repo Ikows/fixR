@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Reaction;
 use App\Form\ReactionType;
 use Doctrine\Common\Persistence\ObjectManager;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,24 +22,25 @@ class DebatController extends AbstractController
 
         $user = $this->getUser();
         $reaction = new Reaction();
-        $reactionForm = $this->createForm(ReactionType::class, $reaction);
-        $reactionForm->handleRequest($request);
+        $form = $this->createForm(ReactionType::class, $reaction);
+        $form->handleRequest($request);
 
-        if ($reactionForm->isSubmitted() and $reactionForm->isValid()){
+        if ($form->isSubmitted() and $form->isValid()) {
             $reaction->setUser($user)
-                ->setCreatedAt(new \DateTime())
-                ->setArticle($article);
+                ->setArticle($article)
+                ->setCreatedAt(new \DateTime());
             $manager->persist($reaction);
             $manager->flush();
 
-            $this->redirectToRoute('debat', [
-                'id' => $article->getId()
-            ]);
+            unset($reaction);
+            unset($form);
+            $reaction = new Reaction();
+            $form = $this->createForm(ReactionType::class, $reaction);
         }
 
         return $this->render('debat/index.html.twig', [
             'article' => $article,
-            'reactionForm' => $reactionForm->createView()
+            'form' => $form->createView()
         ]);
     }
 }

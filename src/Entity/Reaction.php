@@ -25,7 +25,6 @@ class Reaction
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\NotBlank()
      */
     private $contenu;
 

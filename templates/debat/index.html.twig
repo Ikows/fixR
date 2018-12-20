@@ -70,8 +70,10 @@
         {% endfor %}
         <br>
         <div>
-            {{ form_start(reactionForm) }}
-            {{ form_end(reactionForm) }}
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            <input type="submit" value="submit" name="submit">
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}
