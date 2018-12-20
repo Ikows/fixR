@@ -13,11 +13,33 @@
         <br>
         <h4>Dès maintenant et sans engagement</h4>
         <br>
-        <a href="{{ path('create') }}">
-            <button type="button" class="btn btn-secondary mt-5">S'abonner</button>
+        <a href="#">
+            <button type="button" class="btn btn-secondary mt-5" data-toggle="modal" data-target="#modalAbonnement">S'abonner</button>
         </a>
     </div>
 
+    {# MODAL #}
+
+    <div id="modalAbonnement" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Vous souhaitez être:</p>
+                    <br>
+                    <form action="">
+                        <input type="radio" name="abonnement" value="lecteur" onclick="this.form.action = '{{ path("create") }}'; ">Lecteur<br>
+                        <br>
+                        <input type="radio" name="abonnement" value="journalist" onclick="this.form.action = '{{ path("create_journalist") }}'; ">Journaliste<br>
+                        <br>
+                        <button class="btn btn-secondary float-right">Valider</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}
