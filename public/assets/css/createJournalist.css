@@ -6,6 +6,7 @@ h3
 
 body {
     background-image: url("/assets/images/journalflou.jpg");
+    background-attachment: fixed;
 }
 
 .container {
