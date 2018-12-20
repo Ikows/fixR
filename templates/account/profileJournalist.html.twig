@@ -34,7 +34,7 @@
             <div class="row">
                 {% for article in user.articles %}
                     {% set url = path('article_show', {'slug': article.slug}) %}
-                    <div class="col-md-4">
+                    <div class="col">
                         <div class="card cardArticle mb-3">
                             <a href="{{ url }}">
                                 <img src="{{ article.image }}" alt="Image de l'article" style="height: 200px; width: 100%; display: block">
