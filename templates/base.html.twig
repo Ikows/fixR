@@ -22,9 +22,8 @@
             {% endif %}
             <div class="collapse navbar-collapse" id="navbarColor03">
 
-
+                <ul class="navbar-nav ml-auto">
                     {% if app.user %}
-                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: white">
                                 <img src="{{ app.user.photo }}" alt="avatar de {{ app.user.prenom }}" class="avatar-mini rounded-circle">
@@ -37,14 +36,13 @@
                                 <a href="{{ path('logout') }}" class="dropdown-item">Déconnexion</a>
                             </div>
                         </li>
-                    </ul>
                     {% else %}
                         {% if log is not defined %}
-                            <li class="class-item">
-                                <a href="{{ path('app_login') }}">
-                                    <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
-                                </a>
-                            </li>
+                                <li class="class-item">
+                                    <a href="{{ path('app_login') }}">
+                                        <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
+                                    </a>
+                                </li>
                         {% endif %}
 
                     {% endif %}
