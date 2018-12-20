@@ -1,0 +1,174 @@
+/*.carousel
+{
+    margin-top: 20%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item
+{
+    margin: 5%;
+}
+
+image
+{
+    margin-left: 5%;
+}*/
+/*
+body
+{
+    background-image: url("/assets/images/journalflou.jpg");
+    background-attachment: fixed;
+}
+
+.container
+{
+    margin-left: 0;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+#galerie
+{
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    height: 450px;
+    width: 125%;
+    overflow: hidden;
+    margin-left: 5%;
+}
+
+.suiv
+{
+    cursor: pointer;
+    position: absolute;
+    height: 100px;
+    width: 30px;
+    background: #0c5460 top left;
+    top: 40%;
+}
+
+.prec
+{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    height: 100px;
+    width: 30px;
+    background: #0c5460 right top;
+    top: 40%;
+}
+
+.slider
+{
+    width: 5000px;
+    position: relative;
+    top: 10%;
+}
+
+img
+{
+    border: solid white;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+#galerie a
+{
+    display: block;
+    float: left;
+    padding: 0 40px;
+}
+
+h2
+{
+    color: white;
+    font-weight: bold;
+    margin-left: 5%;
+}*/
+
+/* CSS Document */
+
+body{margin-top: 50px; margin-bottom: 100px;}
+
+/* equal card height */
+.row-equal > div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+    width: 100%;
+}
+
+/* ensure equal card height inside carousel */
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+
+/* prevent flicker during transition */
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+
+/* control image height */
+.card-img-top-250 {
+    max-height: 250px;
+    overflow:hidden;
+}
+
+.card-header
+{
+    color: black;
+}
+
+
+.carousel
+{
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    margin-top: 20%;
+}
+
+.carousel-inner
+{
+
+}
+
+.suiv
+{
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+}
+
+.prec
+{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    background: right top;
+    top: 45%;
+}
+
+#postsCarousel
+{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+h3
+{
+    padding-left: 40%;
+}
+
+h2
+{
+    color: white;
+    font-weight: bold;
+    margin-left: 2%;
+}
