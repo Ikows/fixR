@@ -18,7 +18,7 @@
                 <h1>{{ user.prenom }} {{ user.nom }}</h1>
                 {% if user is same as (app.user) %}
                     <div class="mt-3">
-                        <a href="#" class="btn btn-primary mr-2 mb-2">Modifier mes informations</a>
+                        <a href="{{ path("edit_journalist") }}" class="btn btn-primary mr-2 mb-2">Modifier mes informations</a>
                         <a href="#" class="btn btn-primary mb-2">Modifier mon mot de passe</a>
                     </div>
                 {% endif %}
