@@ -13,32 +13,37 @@
     <header>
 
         <nav class="navbar navbar-expand-lg navbar-light d-block">
-            {% if app.user %}
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
-                        <img src="{{ app.user.photo }}" alt="Avatar de {{ app.user.prenom }} {{ app.user.nom }}" class="avatar avatar-mini">
-                        {{ app.user.prenom }} {{ app.user.nom }}
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#" class="dropdown-item">Créer un article</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Mon compte</a>
-                        <a href="#" class="dropdown-item">Modifier mon profil</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Déconnexion</a>
-                    </div>
-                </li>
-            <a class="navbar-brand d-block logo" href="{{ path('app_login') }}">
-                    <img src="/assets/images/fixR.png" alt="logo_fixR">
-                </a>
-            {% else %}
-            <a href="{{ path('app_login') }}">
-                <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
-            </a>
             <a class="navbar-brand d-block logo" href="{{ path('app_login') }}">
                 <img src="/assets/images/fixR.png" alt="logo_fixR">
             </a>
-            {% endif %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav ml-auto">
+                    {% if app.user %}
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+                                <img src="{{ app.user.photo }}" alt="Avatar de {{ app.user.prenom }} {{ app.user.nom }}" class="avatar avatar-mini">
+                                {{ app.user.prenom }} {{ app.user.nom }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="#" class="dropdown-item">Créer un article</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">Mon compte</a>
+                                <a href="#" class="dropdown-item">Modifier mon profil</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">Déconnexion</a>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="class-item">
+                            <a href="#" class="nav-link">S'identifier</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </nav>
 
     </header>
@@ -81,12 +86,14 @@
         </div>
     </footer>
 
-        <script type="text/javascript" src="/assets/js/jquery-3.3.1.slim.min.js"></script>
-        <script type="text/javascript" src="/assets/js/popper.min.js"></script>
-        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script type="text/javascript" src="/assets/js/popper.min.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
