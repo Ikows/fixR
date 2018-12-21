@@ -13,14 +13,16 @@ class ReactionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('contenu', CKEditorType::class)
+            ->add('contenu', CKEditorType::class, [
+                'label' => "Votre message :"
+            ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Reaction::class,
+            'label' => false
         ]);
     }
 }

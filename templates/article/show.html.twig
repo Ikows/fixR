@@ -16,15 +16,15 @@
 
     <div class="container corpArticle">
         <div class="row">
-            <div class="col-md-8 mb-3">
+            <div class="col-md-8 mb-3" style="font-size: 22px;">
                 {{ article.contenu | raw }}
-                <a href="#">
+                <a href="{{ path("debat", {'id': article.id })}}">
                     <button type="button" class="btn btn-secondary">Débat</button>
                 </a>
             </div>
-            <div class="col-sm-12 col-md">
+            <div class="col-sm-12 col-md author">
                 {% set a = article.auteur %}
-                <div class="row">
+                <div class="row pl-3">
                     <div class="col-md-3">
                         <a href="#"><img class="avatar" src="{{ a.photo }}" alt="avatar de {{ a.nom }}{{ a.prenom }}"></a>
                     </div>
@@ -32,7 +32,7 @@
                         <a href="{{ path("profile_journalist", {'slug': article.auteur.slug}) }}" style="color: white">
                             <h3>{{ a.prenom }} {{ a.nom }}</h3>
                         </a>
-                        <span class="badge badge-primary">{{ a.articles|length }} articles</span>
+                        <span class="badge badge-danger mb-3">{{ a.articles|length }} articles</span>
                     </div>
                 </div>
                 {{ a.description|raw }}

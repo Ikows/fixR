@@ -34,9 +34,15 @@
                     </div>
                 </div>
 
-                <button class="btn btn-secondary col-3 m-md-5">{{ button_label|default('Save') }}</button>
+                <button class="btn btn-secondary col-3 m-md-5 float-right">{{ button_label|default('Sauvegarder') }}</button>
 
             {{ form_end(form) }}
+
+            <div class="row">
+            {% if delete is defined %}
+                {{ include('article/_delete_form.html.twig') }}
+            {% endif %}
+            </div>
 
         </div>
     </div>

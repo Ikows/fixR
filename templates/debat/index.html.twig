@@ -2,18 +2,20 @@
 
 {% block title %}{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/debat.css">
+{% endblock %}
+
 {% block body %}
     <div class="container">
-        <div class="jumbotron py-4">
-            <h1 class="display-3">{{ article.title }}</h1>
-            <img style="height: 40vh; width: 100%;" src="{{ article.image }}">
+            <h2 class="text-center mb-4">{{ article.title }}</h2>
+            <img style="height: 40vh; width: 100%; border-radius: 10px;" src="{{ article.image }}">
             <hr class="my-4">
             {{ article.contenu|raw }}
-            <p>Ecrit par {{ article.auteur.nom }} {{ article.auteur.prenom }}, le : {{ article.createdAt|date('d M Y à h:i') }}</p>
-        </div>
+            <p class="pluspetit">Ecrit par {{ article.auteur.nom }} {{ article.auteur.prenom }}, le : {{ article.createdAt|date('d M Y à h:i') }}</p>
 
         <div class="jumbotron">
-            <h4>Le débat aura lieu du 22 Déc au 24 Déc</h4>
+            <h4>Le débat aura lieu du 22 au 24 décembre</h4>
             <br>
             <div class="row">
                 <div class="col">
@@ -27,12 +29,12 @@
                 <div class="col">
                     <p>Il reste : <br> <span class="h2">4</span> places</p>
                 </div>
-                <div class="col"><a class="btn btn-primary btn-lg d-block my-auto" href="#" role="button">Participer au débat !</a>
+                <div class="col"><a class="btn btn-secondary btn-lg d-block my-auto" href="#" role="button">Participer au débat !</a>
                 </div>
             </div>
         </div>
 
-        <h1>Place du débat</h1>
+        <h2 class="text-center">Place du débat</h2>
         <br>
         {% for reaction in article.reactions %}
             <div class="row">
@@ -50,7 +52,7 @@
         <div>
             {{ form_start(form) }}
             {{ form_rest(form) }}
-            <input class="btn btn-primary" type="submit" value="submit" name="submit">
+            <input class="btn btn-secondary float-right" type="submit" value="Envoyer" name="submit">
             {{ form_end(form) }}
         </div>
     </div>

@@ -3,8 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\MotCle;
+use App\Entity\Theme;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -30,16 +34,18 @@ class ArticleType extends AbstractType
             ->add('contenu')
             ->add('image')
            /* ->add('auteur')*/
-            ->add('theme', ChoiceType::class, array(
-                'choices'=>array(
-                    'Politique'=>'stock_politique',
-                    'Economie'=>'stock_economie',
-                    'Santé'=>'stock_sante',
-                    'Design'=>'stock_design',
-                    'Cuisine'=>'stock_cuisine'
-                )
-           ))
-            ->add('motCle', UrlType::class)
+            ->add('theme', EntityType::class, [
+                'class' => Theme::class,
+                   'choice_label' => 'titre'
+               ]
+           )
+            ->add('motCle', EntityType::class, [
+                'class' => MotCle::class,
+                'choice_label' => 'titre',
+                'required' => false,
+                'multiple' => true,
+                'expanded' => true
+            ])
         ;
     }
 

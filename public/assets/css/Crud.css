@@ -10,13 +10,12 @@ body {
     margin-bottom: 5%;
 }
 
-h1
+h2
 {
     display: flex;
     justify-content: center;
     margin-top: 10%;
     color: white;
-    font-size: 400%;
 }
 
 a

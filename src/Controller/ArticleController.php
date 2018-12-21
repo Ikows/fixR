@@ -67,12 +67,13 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('article_index', ['id' => $article->getId()]);
+            return $this->redirectToRoute('article_show', ['slug' => $article->getSlug()]);
         }
 
         return $this->render('article/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
+            'delete' => true
         ]);
     }
 
@@ -87,6 +88,6 @@ class ArticleController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('article_index');
+        return $this->redirectToRoute('profile_journalist');
     }
 }
