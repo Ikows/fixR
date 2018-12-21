@@ -1,43 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ article.title }}{% endblock %}
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="/assets/css/showArticle.css">
-{% endblock %}
+{% block title %}Article{% endblock %}
 
 {% block body %}
+    <h1>Article</h1>
 
-    <div class="ad-title" style="background-image: url({{ article.image }})">
-        <div class="container">
-            <h1>{{ article.title }}</h1>
-        </div>
-    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ article.slug }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ article.ville }}</td>
+            </tr>
+            <tr>
+                <th>Support</th>
+                <td>{{ article.support }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ article.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ article.image }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div class="container corpArticle">
-        <div class="row">
-            <div class="col-md-8 mb-3">
-                {{ article.contenu | raw }}
-                <a href="#">
-                    <button type="button" class="btn btn-secondary">Débat</button>
-                </a>
-            </div>
-            <div class="col-sm-12 col-md">
-                {% set a = article.auteur %}
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="#"><img class="avatar" src="{{ a.photo }}" alt="avatar de {{ a.nom }}{{ a.prenom }}"></a>
-                    </div>
-                    <div class="col">
-                        <a href="{{ path("profile_journalist", {'slug': article.auteur.slug}) }}" style="color: white">
-                            <h3>{{ a.prenom }} {{ a.nom }}</h3>
-                        </a>
-                        <span class="badge badge-primary">{{ a.articles|length }} articles</span>
-                    </div>
-                </div>
-                {{ a.description|raw }}
-            </div>
-        </div>
-    </div>
+    <a href="{{ path('article_index') }}">back to list</a>
 
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
 {% endblock %}

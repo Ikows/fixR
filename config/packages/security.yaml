@@ -16,12 +16,6 @@ security:
             security: false
         main:
             anonymous: true
-            guard:
-                authenticators:
-                    - App\Security\FixRAuthenticator
-            logout:
-                path: logout
-                target: app_login
 
             # activate different ways to authenticate
 

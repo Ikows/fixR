@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReactionRepository")
@@ -32,11 +30,6 @@ class Reaction
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="reactions")
      */
     private $user;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="reactions")
-     */
-    private $article;
 
     public function getId(): ?int
     {
@@ -75,18 +68,6 @@ class Reaction
     public function setUser(?User $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    public function getArticle(): ?Article
-    {
-        return $this->article;
-    }
-
-    public function setArticle(?Article $article): self
-    {
-        $this->article = $article;
 
         return $this;
     }
