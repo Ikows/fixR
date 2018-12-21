@@ -18,6 +18,7 @@
         <div class="row">
             <div class="col-md-8 mb-3">
                 {{ article.contenu | raw }}
+                <p style="font-size: 13px;">Date : {{ article.createdAt|date('d M Y à h:i') }}</p>
                 <a href="#">
                     <button type="button" class="btn btn-secondary">Débat</button>
                 </a>
@@ -32,7 +33,7 @@
                         <a href="{{ path("profile_journalist", {'slug': article.auteur.slug}) }}" style="color: white">
                             <h3>{{ a.prenom }} {{ a.nom }}</h3>
                         </a>
-                        <span class="badge badge-primary">{{ a.articles|length }} articles</span>
+                        <span class="badge badge-secondary">{{ a.articles|length }} articles</span>
                     </div>
                 </div>
                 {{ a.description|raw }}
