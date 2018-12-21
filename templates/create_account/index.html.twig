@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/create.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+{% endblock %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+
+
+    <h3>Restez connecté à l'actualité.</h3>
+
+<div class="container">
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.prenom) }}
+    {{ form_row(form.password) }}
+    {{ form_row(form.password_verify) }}
+    <button type="submit" class="btn btn-secondary"  name="submit">Confirmer votre inscription</button>
+    {{ form_end(form) }}
+</div>
+
+
+
+{% endblock %}

@@ -3,14 +3,104 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/base.css">
+
         {% block stylesheets %}{% endblock %}
     </head>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light d-block">
+            {% if retour is defined %}
+                <a href="{{ path('homepage') }}">
+                    <button class="btn btn-secondary my-2 my-sm-0 float-left" type="submit">Retour</button>
+                </a>
+            {% endif %}
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav ml-auto">
+                    {% if app.user %}
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: white">
+                                <img src="{{ app.user.photo }}" alt="avatar de {{ app.user.prenom }}" class="avatar-mini rounded-circle">
+                                {{ app.user.prenom }} {{ app.user.nom }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="{{ path('account_index')}}" class="dropdown-item">Mon profil</a>
+                                <a href="{{ path('article_new')}}" class="dropdown-item">Créer un article</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{{ path('logout') }}" class="dropdown-item">Déconnexion</a>
+                            </div>
+                        </li>
+                    {% else %}
+                        {% if log is not defined %}
+                                <li class="class-item">
+                                    <a href="{{ path('app_login') }}">
+                                        <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
+                                    </a>
+                                </li>
+                        {% endif %}
+
+                    {% endif %}
+                </ul>
+            </div>
+            <a class="navbar-brand d-block logo">
+                <img src="/assets/images/fixR.png" alt="logo_fixR">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+    </header>
+
     <body>
+    {% for label, messages in app.flashes %}
+        <div class="container">
+            <div class="alert alert-{{ label }}">
+                {% for message in messages %}
+                    <p>{{ message | raw }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
         {% block body %}{% endblock %}
-        <script type="text/javascript" src="/assets/js/jquery-3.3.1.slim.min.js"></script>
-        <script type="text/javascript" src="/assets/js/popper.min.js"></script>
-        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
         {% block javascripts %}{% endblock %}
     </body>
+
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="col-3 d-flex justify-content-center ml-5">
+                <a href="#" class="fas fa-user-times fa-2x mb-3"></a>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <a href="#" class="fas fa-chair fa-2x mb-3"></a>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <a href="#" class="fas fa-landmark fa-2x mb-3"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 d-flex justify-content-center ml-5">
+                <p class="footer">Sans engagement : l'information est un droit. De ce fait, vous êtes libres de partir quand vous voulez</p>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <p class="footer">Interactif : réagissez à l'information en participant à des débats encadrés par nos journalistes</p>
+            </div>
+            <div class="col-3 offset-1 d-flex justify-content-center">
+                <p class="footer">Indépendant : nos articles sont rédigés dans le respect de la neutralité de l'information</p>
+            </div>
+        </div>
+    </footer>
+
 </html>

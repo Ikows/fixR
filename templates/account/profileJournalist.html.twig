@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/profileJournalist.css">
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-3 text-center">
+                <img src="{{ user.photo }}" alt="" class="avatar-large mb-3">
+            </div>
+            <div class="col-9">
+                <h1>{{ user.prenom }} {{ user.nom }}</h1>
+                {% if user is same as (app.user) %}
+                    <div class="mt-3">
+                        <a href="{{ path("edit_journalist") }}" class="btn btn-primary mr-2 mb-2">Modifier mes informations</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {{ user.description|raw }}
+
+        <hr>
+
+        <h2>Les articles de {{ user.prenom }} {{ user.nom }}</h2>
+
+        {% if user.articles|length > 0 %}
+            <div class="row">
+                {% for article in user.articles %}
+                    {% set url = path('article_show', {'slug': article.slug}) %}
+                    <div class="col">
+                        <div class="card cardArticle mb-3">
+                            <a href="{{ url }}">
+                                <img src="{{ article.image }}" alt="Image de l'article" style="height: 200px; width: 100%; display: block">
+                            </a>
+                            <div class="card-body">
+                                <h3 class="card-title">
+                                    {{ article.title }}
+                                </h3>
+                                <a href="{{ url }}" class="btn btn-secondary">En savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                <p>
+                    <strong>{{ user.prenom }} {{ user.nom }}</strong> n'a pas encore d'articles sur le site !
+                </p>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

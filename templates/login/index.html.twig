@@ -7,44 +7,39 @@
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-lg navbar-light d-block text-center">
-        <a class="navbar-brand" href="#"><p class="brand">Fix.R</p></a>
-        <a href="{{ path('login') }}">
-            <button class="btn btn-secondary my-2 my-sm-0 float-right" type="submit">S'identifier</button>
-        </a>
-    </nav>
 
     <div class="container text-center information">
         <h2>Informez-vous !</h2>
         <br>
         <h4>Dès maintenant et sans engagement</h4>
         <br>
-        <button type="button" class="btn btn-secondary mt-5">S'abonner</button>
+        <a href="#">
+            <button type="button" class="btn btn-secondary mt-5" data-toggle="modal" data-target="#modalAbonnement">S'abonner</button>
+        </a>
     </div>
 
-    <footer>
-        <div class="row">
-            <div class="col-3 d-flex justify-content-center ml-5">
-                <a href="#" class="fas fa-user-times fa-2x mb-3"></a>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <a href="#" class="fas fa-chair fa-2x mb-3"></a>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <a href="#" class="fas fa-landmark fa-2x mb-3"></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-3 d-flex justify-content-center ml-5">
-                <p>Sans engagement : l'information est un droit. De ce fait, vous êtes libres de partir quand vous voulez</p>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <p>Interactif : réagissez à l'information en participant à des débats encadrés par nos journalistes</p>
-            </div>
-            <div class="col-3 offset-1 d-flex justify-content-center">
-                <p>Indépendant : nos articles sont rédigés dans le respect de la neutralité de l'information</p>
+    {# MODAL #}
+
+    <div id="modalAbonnement" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Vous souhaitez être:</p>
+                    <br>
+                    <form action="">
+                        <input type="radio" name="abonnement" value="lecteur" onclick="this.form.action = '{{ path("create") }}'; ">Lecteur<br>
+                        <br>
+                        <input type="radio" name="abonnement" value="journalist" onclick="this.form.action = '{{ path("create_journalist") }}'; ">Journaliste<br>
+                        <br>
+                        <button class="btn btn-secondary float-right">Valider</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+
 
 {% endblock %}

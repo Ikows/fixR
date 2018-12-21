@@ -1,0 +1,18 @@
+h3
+{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container {
+    padding: 30px 30px 55px 30px;
+    margin-top: 10vh;
+    width: 50%;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.btn {
+    float: right;
+}

@@ -1,0 +1,81 @@
+.row-equal > div[class*='col-'] {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.row-equal .card {
+    width: 100%;
+}
+
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+    display: flex;
+}
+
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+    opacity: 0.5;
+    display: flex;
+}
+
+.card-img-top-250 {
+    max-height: 250px;
+    overflow:hidden;
+}
+
+.card-header
+{
+    color: black;
+}
+
+.carousel
+{
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    margin-top: 10%;
+}
+
+.suiv
+{
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+}
+
+.prec
+{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    background: right top;
+    top: 45%;
+}
+
+#postsCarousel
+{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+h3
+{
+    padding-left: 40%;
+}
+
+h2
+{
+    color: white;
+    font-weight: bold;
+    margin-left: 2%;
+}
+
+h1
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+    color: white;
+    font-size: 400%;
+}
+

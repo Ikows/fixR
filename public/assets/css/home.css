@@ -2,42 +2,19 @@ body {
     background-image: url("/assets/images/journalflou.jpg");
 }
 
-nav {
-    background-color: transparent;
-}
-
-p {
-    color: white;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
-    font-size: 18px;
-    text-align: center;
-}
-
-.brand {
-    font-size: 60px;
-    color: white;
-}
-
 .information {
     color: white;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
     margin-top: 20vh;
-    margin-bottom: 30vh;
-}
-
-.fas {
-    color: white;
-}
-
-.fas:hover {
-    text-decoration: none;
-    color: white;
+    margin-bottom: 20vh;
 }
 
 .connect {
     margin-top: 15vh;
+    margin-bottom: 20vh;
 }
 
 .button {
     text-align: right;
 }
+

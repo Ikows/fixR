@@ -1,0 +1,36 @@
+div.container {
+    margin-top: 20px;
+}
+
+div.ad-title {
+    padding: 2em;
+    background-size: cover;
+    background-position: center center;
+}
+
+div.ad-title h1 {
+    color: white;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
+
+.avatar {
+    max-width: 64px;
+    max-height: 64px;
+    border-radius: 50%;
+}
+
+.corpArticle {
+    padding: 30px 30px 55px 30px;
+    margin-top: 10vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.coverImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+}
