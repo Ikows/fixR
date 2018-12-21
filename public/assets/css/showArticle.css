@@ -34,3 +34,9 @@ div.ad-title h1 {
     margin-right: auto;
     border-radius: 4px;
 }
+
+.author {
+    border-left: solid 2px white;
+}
+
+
